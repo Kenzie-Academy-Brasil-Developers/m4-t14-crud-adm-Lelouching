@@ -58,7 +58,7 @@ export const ifIdExists = async (req: Request, res: Response, next: NextFunction
     const user: iUserWithoutPassword = await ifIdExistsService(Number(req.params.id))
 
     if(!user) {
-        throw new AppError(`User with id ${req.params.id} does not exist`, 404)
+        throw new AppError(`User not found`, 404)
     }
 
     if(req.method === "PUT" && user.active) {

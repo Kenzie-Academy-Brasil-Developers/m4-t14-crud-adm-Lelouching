@@ -7,7 +7,7 @@ export const createUserSchema = z.object({
     password: z.string().max(120).transform((password: string) => {
         return hashSync(password, 10)
     }),
-    admin: z.boolean()
+    admin: z.boolean().optional()
 })
 
 export const updateUserSchema = z.object({
