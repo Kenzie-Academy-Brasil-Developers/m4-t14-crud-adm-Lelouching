@@ -3,8 +3,10 @@ import { QueryConfig, QueryResult } from "pg"
 
 export const deleteUserService = async (userId: number): Promise<void> => {
     const queryString: string = `
-        DELETE FROM
+        UPDATE
             "users"
+        SET
+            "active" = FALSE
         WHERE
             "id" = $1;
     `
